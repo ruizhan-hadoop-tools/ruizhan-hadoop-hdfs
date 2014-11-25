@@ -20,7 +20,9 @@ public class clusterinfo  {
 		System.out.println("MaxReduceTasks:" + new Integer(cluster_status.getMaxReduceTasks()).toString());
 		System.out.println("ReduceTasks:" + new Integer(cluster_status.getReduceTasks()).toString());
 		System.out.println("BlacklistedTrackersNums:" + new Integer(cluster_status.getBlacklistedTrackers()).toString());
-		System.out.println("BlacklistedTrackers:" + transFromCollection(cluster_status.getBlacklistedTrackerNames()));
+		System.out.println("BlacklistedTrackerNames:" + transFromCollection(cluster_status.getBlacklistedTrackerNames()));
+		System.out.println("NumExcludedNodes:" + new Integer(cluster_status.getNumExcludedNodes()).toString());
+		System.out.println("ActiveTrackerNames:" + transFromCollection(cluster_status.getActiveTrackerNames()).toString());
 	
 	}
 	
