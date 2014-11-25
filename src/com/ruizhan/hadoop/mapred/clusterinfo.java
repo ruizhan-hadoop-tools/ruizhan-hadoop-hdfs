@@ -1,6 +1,7 @@
 package com.ruizhan.hadoop.mapred;
 
 import java.net.InetSocketAddress;
+import java.net.URL;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.conf.Configured;
@@ -26,6 +27,11 @@ public class clusterinfo extends Configured implements Tool {
 	public static void main(String[] args) throws Exception {
 	    //int res = ToolRunner.run(new Configuration(), new Sort(), args);
 	    //System.exit(res);
+		String className = JobClient.class.getName();  
+		className = className.replace('.', '/');  
+		String resource = "/" + className + ".class";  
+		URL url = JobClient.class.getResource(resource);  
+		System.out.println(url.getFile());
 		Configuration conf = new Configuration();
 		JobClient cli = new JobClient(new InetSocketAddress("10.6.252.77",8021),conf);
 		//Cluster cluster = new Cluster(new InetSocketAddress("10.6.252.77",8021),conf);
@@ -34,10 +40,10 @@ public class clusterinfo extends Configured implements Tool {
 		//System.err.println(cluster_status_0.getMapSlotCapacity());
 		//System.err.println(cluster_status_0.getReservedMapSlots());
 		System.err.println(cluster_status_1.getMaxMemory());
-		Cluster cluster = cli.getClusterHandle();
-		ClusterMetrics cluster_status_0 = cluster.getClusterStatus();
-		System.err.println(cluster_status_0.getMapSlotCapacity());
-		System.err.println(cluster_status_0.getReservedMapSlots());		
+		//Cluster cluster = cli.getClusterHandle();
+		//ClusterMetrics cluster_status_0 = cluster.getClusterStatus();
+		//System.err.println(cluster_status_0.getMapSlotCapacity());
+		//System.err.println(cluster_status_0.getReservedMapSlots());		
 	}
 
 
