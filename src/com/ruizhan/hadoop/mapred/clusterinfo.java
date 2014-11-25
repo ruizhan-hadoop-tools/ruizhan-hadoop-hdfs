@@ -25,7 +25,8 @@ public class clusterinfo extends Configured implements Tool {
 	    //int res = ToolRunner.run(new Configuration(), new Sort(), args);
 	    //System.exit(res);
 		Configuration conf = new Configuration();
-		JobClient client = new JobClient(new InetSocketAddress("122.225.114.68",8020),conf);
+		JobClient client = new JobClient(new InetSocketAddress("10.6.252.77",8021),conf);
+		//JobClient client = new JobClient(conf);
 		ClusterStatus cluster = client.getClusterStatus();
 		System.err.println(cluster.getActiveTrackerNames());
 		System.err.println(cluster.getMaxMapTasks());
