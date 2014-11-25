@@ -27,11 +27,17 @@ public class clusterinfo extends Configured implements Tool {
 	    //int res = ToolRunner.run(new Configuration(), new Sort(), args);
 	    //System.exit(res);
 		Configuration conf = new Configuration();
-		Cluster cluster = new Cluster(new InetSocketAddress("10.6.252.77",8021),conf);
-		//JobClient client = new JobClient(conf);
-		ClusterMetrics cluster_status = cluster.getClusterStatus();
-		System.err.println(cluster_status.getMapSlotCapacity());
-		System.err.println(cluster_status.getReservedMapSlots());
+		JobClient cli = new JobClient(new InetSocketAddress("10.6.252.77",8021),conf);
+		//Cluster cluster = new Cluster(new InetSocketAddress("10.6.252.77",8021),conf);
+		//ClusterMetrics cluster_status_0 = cluster.getClusterStatus();
+		ClusterStatus cluster_status_1 = cli.getClusterStatus();
+		//System.err.println(cluster_status_0.getMapSlotCapacity());
+		//System.err.println(cluster_status_0.getReservedMapSlots());
+		System.err.println(cluster_status_1.getMaxMemory());
+		Cluster cluster = cli.getClusterHandle();
+		ClusterMetrics cluster_status_0 = cluster.getClusterStatus();
+		System.err.println(cluster_status_0.getMapSlotCapacity());
+		System.err.println(cluster_status_0.getReservedMapSlots());		
 	}
 
 
