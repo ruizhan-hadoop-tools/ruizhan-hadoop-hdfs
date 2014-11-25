@@ -23,7 +23,8 @@ public class clusterinfo  {
 		System.out.println("BlacklistedTrackerNames:" + transFromCollection(cluster_status.getBlacklistedTrackerNames()));
 		System.out.println("NumExcludedNodes:" + new Integer(cluster_status.getNumExcludedNodes()).toString());
 		System.out.println("ActiveTrackerNames:" + transFromCollection(cluster_status.getActiveTrackerNames()).toString());
-	
+		System.out.println("TaskTrackers:" + new Integer(cluster_status.getTaskTrackers()).toString());
+
 	}
 	
 	private static String transFromCollection(Collection<?> collect){
