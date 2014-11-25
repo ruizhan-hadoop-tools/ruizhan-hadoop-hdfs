@@ -40,6 +40,7 @@ public class clusterinfo extends Configured implements Tool {
 		//System.err.println(cluster_status_0.getMapSlotCapacity());
 		//System.err.println(cluster_status_0.getReservedMapSlots());
 		System.err.println(cluster_status_1.getMaxMemory());
+		System.err.println(cluster_status_1.getMapTasks());
 		//Cluster cluster = cli.getClusterHandle();
 		//ClusterMetrics cluster_status_0 = cluster.getClusterStatus();
 		//System.err.println(cluster_status_0.getMapSlotCapacity());
