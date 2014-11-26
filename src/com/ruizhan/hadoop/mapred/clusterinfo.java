@@ -13,7 +13,8 @@ public class clusterinfo  {
 
 	public static void main(String[] args) throws Exception {
 		Configuration conf = new Configuration();
-		JobClient cli = new JobClient(new InetSocketAddress("10.6.252.77",8021),conf);
+		//JobClient cli = new JobClient(new InetSocketAddress("10.6.252.77",8021),conf);
+		JobClient cli = new JobClient(conf);
 		ClusterStatus cluster_status = cli.getClusterStatus();
 		System.out.println("MaxMapTasks:" + new Integer(cluster_status.getMaxMapTasks()).toString());
 		System.out.println("MapTasks:" + new Integer(cluster_status.getMapTasks()).toString());
